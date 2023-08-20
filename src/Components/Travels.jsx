@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import postData from "../data/posts.json";
 
 const Travels = () => {
+  const [searchPost, setSearchPost] = useState("");
+  const [filteredPost, setFilteredPost] = useState(postData);
   const postCount = {};
 
   postData.forEach((post) => {
@@ -15,17 +17,32 @@ const Travels = () => {
     }
   });
 
+  const handleSearchChange = (event) => {
+    const { value } = event.target;
+    setSearchPost(value);
+
+    const filtered = postData.filter(
+      (post) =>
+        post.title.toLowerCase().includes(value.toLowerCase()) ||
+        post.location.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredPost(filtered);
+  };
+
   return (
     <div className="container">
       <form className="">
         <label htmlFor="search"> Search post by location...</label>
-        <input className="" type="search" aria-label="Search" />
-        <button className="" type="delete">
-          Cancel
-        </button>
+        <input
+          type="search"
+          aria-label="Search"
+          value={searchPost}
+          onChange={handleSearchChange}
+        />
+        <button type="delete">Cancel</button>
       </form>
-      <div className="row">
-        {postData.map((post) => (
+      <div>
+        {filteredPost.map((post) => (
           <Card key={post.id} post={post} />
         ))}
       </div>
@@ -39,11 +56,11 @@ const Travels = () => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(postCount).map((location)=> (
-                <tr key={location}>
-                    <td>{location}</td>
-                    <td>{postCount[location]}</td>
-                </tr>
+            {Object.keys(postCount).map((location) => (
+              <tr key={location}>
+                <td>{location}</td>
+                <td>{postCount[location]}</td>
+              </tr>
             ))}
           </tbody>
         </table>

@@ -4,12 +4,12 @@ const Nav = () => {
   return (
     <div>
       <h2>Travel Blog</h2>
-      <ul className="">
+      <ul className="navigation">
         <li>
-          <a className="">About</a>
+          <a href="#">About</a>
         </li>
         <li>
-          <a className="">Popular posts</a>
+          <a href="#">Popular posts</a>
         </li>
        
       </ul>

@@ -9,7 +9,7 @@ function App() {
   return (
     <main>
       <Nav />
-      <Header />
+      <Header className="script-font" />
       <Travels />
       <Footer />
     </main>

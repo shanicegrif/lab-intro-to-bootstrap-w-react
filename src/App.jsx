@@ -1,10 +1,17 @@
-import postData from "./data/posts.json";
+
+import Nav from "./Components/Nav";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Travels from "./Components/Travels";
 
 function App() {
-  console.log(postData);
+
   return (
     <main>
-      <button className="btn">hi</button>
+      <Nav />
+      <Header />
+      <Travels />
+      <Footer />
     </main>
   );
 }

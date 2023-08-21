@@ -31,21 +31,28 @@ const Travels = () => {
 
   return (
     <div className="container">
-      <form className="">
-        <label htmlFor="search"> Search post by location...</label>
-        <input
-          type="search"
-          aria-label="Search"
-          value={searchPost}
-          onChange={handleSearchChange}
-        />
-        <button type="delete">Cancel</button>
+      <form>
+        <div className="mb-3">
+          <label htmlFor="search" className="form-label">
+            Search post by location or title...
+          </label>
+          <input
+            type="search"
+            className="form-control"
+            id="search"
+            value={searchPost}
+            onChange={handleSearchChange}
+          />
+        </div>
+        <button type="button" className="btn btn-primary">
+          Cancel
+        </button>
       </form>
       <div>
         {filteredPost.length > 0 ? (
           <div className="post">
             {filteredPost.map((post) => (
-              <Card key={post.id} post={post} /> 
+              <Card key={post.id} post={post} />
             ))}
           </div>
         ) : (

@@ -42,18 +42,19 @@ const Travels = () => {
         <button type="delete">Cancel</button>
       </form>
       <div>
-        {filteredPost ? (
-          <div>
-            {filteredPost.map((post) => {
-              <Card key={post.id} post={post} />;
-            })}
+        {filteredPost.length > 0 ? (
+          <div className="post">
+            {filteredPost.map((post) => (
+              <Card key={post.id} post={post} /> 
+            ))}
           </div>
         ) : (
           <div className="error">
-            <p>Something went wrong! Please try again later.</p>
+            <p>No matching posts found.</p>
           </div>
         )}
       </div>
+
       <div className="post-table">
         <h3>Posts by location</h3>
         <table>

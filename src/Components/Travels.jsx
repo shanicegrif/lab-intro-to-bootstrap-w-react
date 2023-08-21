@@ -31,55 +31,59 @@ const Travels = () => {
 
   return (
     <div className="container">
-      <form>
-        <div className="mb-3">
-          <label htmlFor="search" className="form-label">
-            Search post by location or title...
-          </label>
-          <input
-            type="search"
-            className="form-control"
-            id="search"
-            value={searchPost}
-            onChange={handleSearchChange}
-          />
+      <div className="row">
+        <div className="col-md-auto">
+          <form>
+            <div className="mb-3">
+              <label htmlFor="search" className="form-label">
+                Search post by location or title...
+              </label>
+              <input
+                type="search"
+                className="form-control"
+                id="search"
+                value={searchPost}
+                onChange={handleSearchChange}
+              />
+            </div>
+            <button type="button" className="btn btn-primary">
+              Cancel
+            </button>
+          </form>
+          <div class="row row-cols-2">
+            {filteredPost.length > 0 ? (
+              filteredPost.map((post) => (
+                <div className="col-ml-6" key={post.id}>
+                  <Card post={post} />
+                </div>
+              ))
+            ) : (
+              <div className="error">
+                <p>No matching posts found.</p>
+              </div>
+            )}
+          </div>
         </div>
-        <button type="button" className="btn btn-primary">
-          Cancel
-        </button>
-      </form>
-      <div>
-        {filteredPost.length > 0 ? (
-          <div className="post">
-            {filteredPost.map((post) => (
-              <Card key={post.id} post={post} />
-            ))}
-          </div>
-        ) : (
-          <div className="error">
-            <p>No matching posts found.</p>
-          </div>
-        )}
-      </div>
 
-      <div className="post-table">
-        <h3>Posts by location</h3>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Location</th>
-              <th scope="col">Posts</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(postCount).map((location) => (
-              <tr key={location}>
-                <td>{location}</td>
-                <td>{postCount[location]}</td>
+        <div className="col-md-auto">
+          <h3>Posts by location</h3>
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Location</th>
+                <th scope="col">Posts</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {Object.keys(postCount).map((location) => (
+                <tr key={location}>
+                  <td>{location}</td>
+                  <td>{postCount[location]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

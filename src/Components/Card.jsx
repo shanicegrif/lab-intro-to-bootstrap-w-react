@@ -14,9 +14,9 @@ const Card = ({ post }) => {
   return (
     <div className="post">
       <img
+        className="post-image-height"
         src={images[fixedLocation]}
         alt={`Image of ${location}`}
-        className="post-image-height"
       />
       <h6>{title}</h6>
       <p>{location}</p>

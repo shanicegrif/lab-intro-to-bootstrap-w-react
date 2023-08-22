@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
     return (
         <div>
-            <h3>Travel is the only thing you buy that makes you richer...</h3>
+            <p className="script-font display-4 text-center bg-light">Travel is the only thing you buy that makes you richer...</p>
         </div>
     );
 }

@@ -2,18 +2,15 @@ import React from "react";
 
 const Nav = () => {
   return (
-    <div>
-      <h2>Travel Blog</h2>
-      <ul className="navigation">
-        <li>
-          <a href="#">About</a>
+    <nav>
+      <ul className="list-unstyled">
+        <li className="display-6">
+          Travel <span className="script-font text-warning">Blog</span>
         </li>
-        <li>
-          <a href="#">Popular posts</a>
-        </li>
-       
+        <li className="d-inline-block mr-3">About</li>
+        <li className="d-inline-block">Popular Posts</li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

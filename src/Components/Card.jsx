@@ -12,7 +12,7 @@ const Card = ({ post }) => {
   };
 
   return (
-    <div className="post">
+    <div className="post ">
       <img
         className="post-image-height"
         src={images[fixedLocation]}

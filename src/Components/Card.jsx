@@ -24,7 +24,7 @@ const Card = ({ post }) => {
         <p>{location}</p>
         <p>{showAllContent ? content : content.slice(0, 100) + "..."}</p>
         {content.length > 100 && (
-          <button className="btn btn-warning" onClick={toggleContent}>
+          <button className="btn btn-warning float-sm-end" onClick={toggleContent}>
             Go to Post ▶️
           </button>
         )}

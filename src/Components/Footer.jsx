@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer bg-warning position-relative bottom-0">
       <ul className="list-unstyled text-center">
         <li>
           <a>Contact Me</a>

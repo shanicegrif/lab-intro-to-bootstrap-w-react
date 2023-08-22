@@ -31,10 +31,10 @@ const Travels = () => {
 
   return (
     <div className="container">
-      <div>
-        <form>
-          <div className="mb-3">
-            <label htmlFor="search" className="form-label">
+      <div className="row">
+        <div className="col-md-12">
+          <form style={{ display: "flex", alignItems: "center" }}>
+            <label htmlFor="search" style={{ marginRight: "20px" }}>
               Search post by location or title...
             </label>
             <input
@@ -43,12 +43,13 @@ const Travels = () => {
               id="search"
               value={searchPost}
               onChange={handleSearchChange}
+              style={{ marginRight: "20px" }}
             />
-          </div>
-          <button type="button" className="btn btn-warning">
-            Cancel
-          </button>
-        </form>
+            <button type="button" className="btn btn-warning">
+              Cancel
+            </button>
+          </form>
+        </div>
       </div>
       <div className="row row-cols-md-2">
         <div className="col-md-9">
@@ -60,7 +61,7 @@ const Travels = () => {
                 </div>
               ))
             ) : (
-              <div className="error">
+              <div className="error position-absolute top-50 start-50 translate-middle">
                 <p>No matching posts found.</p>
               </div>
             )}
@@ -68,7 +69,9 @@ const Travels = () => {
         </div>
 
         <div className="col-md-3">
-          <h3>Posts by <span className="text-warning ">location</span></h3>
+          <h3>
+            Posts by <span className="text-warning ">location</span>
+          </h3>
           <table className="table">
             <thead>
               <tr>

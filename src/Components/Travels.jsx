@@ -31,29 +31,31 @@ const Travels = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-auto">
-          <form>
-            <div className="mb-3">
-              <label htmlFor="search" className="form-label">
-                Search post by location or title...
-              </label>
-              <input
-                type="search"
-                className="form-control"
-                id="search"
-                value={searchPost}
-                onChange={handleSearchChange}
-              />
-            </div>
-            <button type="button" className="btn btn-primary">
-              Cancel
-            </button>
-          </form>
-          <div class="row row-cols-2">
+      <div>
+        <form>
+          <div className="mb-3">
+            <label htmlFor="search" className="form-label">
+              Search post by location or title...
+            </label>
+            <input
+              type="search"
+              className="form-control"
+              id="search"
+              value={searchPost}
+              onChange={handleSearchChange}
+            />
+          </div>
+          <button type="button" className="btn btn-warning">
+            Cancel
+          </button>
+        </form>
+      </div>
+      <div className="row row-cols-md-2">
+        <div className="col-md-9">
+          <div class="row row-cols-1 row-cols-md-2 g-4">
             {filteredPost.length > 0 ? (
               filteredPost.map((post) => (
-                <div className="col-ml-6" key={post.id}>
+                <div key={post.id}>
                   <Card post={post} />
                 </div>
               ))
@@ -65,8 +67,8 @@ const Travels = () => {
           </div>
         </div>
 
-        <div className="col-md-auto">
-          <h3>Posts by location</h3>
+        <div className="col-md-3">
+          <h3>Posts by <span className="text-warning ">location</span></h3>
           <table className="table">
             <thead>
               <tr>

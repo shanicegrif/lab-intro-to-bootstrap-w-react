@@ -12,20 +12,23 @@ const Card = ({ post }) => {
   };
 
   return (
-    <div className="post ">
+    <div className="card" >
       <img
-        className="post-image-height"
+        className="rounded" 
         src={images[fixedLocation]}
         alt={`Image of ${location}`}
+        style={{height:"250px"}}
       />
-      <h6>{title}</h6>
-      <p>{location}</p>
-      <p>{showAllContent ? content : content.slice(0, 100) + "..."}</p>
-      {content.length > 100 && (
-        <button onClick={toggleContent}>
-          {showAllContent ? "Show Less" : "Go to post"}
-        </button>
-      )}
+      <div class="card-body d-block">
+        <h6>{title}</h6>
+        <p>{location}</p>
+        <p>{showAllContent ? content : content.slice(0, 100) + "..."}</p>
+        {content.length > 100 && (
+          <button className="btn btn-warning" onClick={toggleContent}>
+            Go to Post ▶️
+          </button>
+        )}
+      </div>
     </div>
   );
 };
